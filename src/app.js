@@ -16,4 +16,10 @@ app.use(express.urlencoded({ extended: true, limit: "20kb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
+// routes import
+import userRouter from "./routes/user.routes.js";
+
+app.use("/api/v1/users", userRouter);
+// this become prefix like this https://api/v1/users upon further filteration this goes into user.routes.js as we are defining userRouter
+
 export { app };
